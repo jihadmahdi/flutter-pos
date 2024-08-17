@@ -1,4 +1,4 @@
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+// import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,10 +18,10 @@ class DatePicker<T extends DatePickerTemplate> extends StatelessWidget {
                     content: SizedBox(
                   height: 450,
                   width: 350,
-                  child: getDateRangePicker(context, range),
+                  // child: getDateRangePicker(context, range),
                 )));
 
-        if (value is PickerDateRange && value.startDate != null && value.endDate != null) {
+        if (value.startDate != null && value.endDate != null) {
           provider.selectedRange = DateTimeRange(start: value.startDate!, end: value.endDate!);
         }
       },
@@ -29,15 +29,15 @@ class DatePicker<T extends DatePickerTemplate> extends StatelessWidget {
     );
   }
 
-  Widget getDateRangePicker(BuildContext context, DateTimeRange initialRange) => SfDateRangePicker(
-        view: DateRangePickerView.month,
-        selectionMode: DateRangePickerSelectionMode.range,
-        initialSelectedDates: [
-          initialRange.start,
-          initialRange.end,
-        ],
-        showActionButtons: true,
-        onSubmit: (value) => Navigator.pop(context, value),
-        onCancel: () => Navigator.pop(context),
-      );
+//   Widget getDateRangePicker(BuildContext context, DateTimeRange initialRange) => SfDateRangePicker(
+//         view: DateRangePickerView.month,
+//         selectionMode: DateRangePickerSelectionMode.range,
+//         initialSelectedDates: [
+//           initialRange.start,
+//           initialRange.end,
+//         ],
+//         showActionButtons: true,
+//         onSubmit: (value) => Navigator.pop(context, value),
+//         onCancel: () => Navigator.pop(context),
+//       );
 }
